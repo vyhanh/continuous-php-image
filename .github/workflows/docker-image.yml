@@ -1,0 +1,17 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the codebase 
+      uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . -t vyhanh/continuous_php_image
